@@ -11,8 +11,9 @@ try:
 except ImportError:
     print("No module  found")
 
-user = os.environ.get("USER")
-passwd = os.environ.get("PASSWORD")
+user = os.environ.get("OC_USER")
+passwd = os.environ.get("OC_PASSWORD")
+print(user, passwd)
 
 if not user or not passwd:
     print("No user or password found")
@@ -31,15 +32,18 @@ for comune in comuni.comuni:
 
     for url in search(query, tld="co.in", num=10, stop=10, pause=2):
         print(url)
-        name = url.split("/")[-1]
-        if (
-            not "pdf" in name
-            or not "doc" in name
-            or not "docx" in name
-            or not "rtf" in name
-        ):
-            name += ".pdf"
+        try:
+            name = url.split("/")[-1]
+            if (
+                not "pdf" in name
+                and not "doc" in name
+                and not "docx" in name
+                and not "rtf" in name
+            ):
+                name += ".pdf"
 
-        request.urlretrieve(url, f"docs/{name}")
-        oc.put_file(f"documenti/{comune}/{name}", f"docs/{name}")
-        os.remove(f"docs/{name}")
+            request.urlretrieve(url, f"docs/{name}")
+            oc.put_file(f"documenti/{comune}/{name}", f"docs/{name}")
+            os.remove(f"docs/{name}")
+        except:
+            pass

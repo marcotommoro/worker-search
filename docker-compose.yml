@@ -5,5 +5,5 @@ services:
     container_name: worker-bassoli
     build: .
     environment:
-      - USER=user
-      - PASSWORD=password
+      - OC_USER=matteobassoli
+      - OC_PASSWORD=C43QH-3GdSy-9FDXj-aDRQ6-N5TNY
