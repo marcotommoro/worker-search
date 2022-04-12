@@ -11,8 +11,9 @@ try:
 except ImportError:
     print("No module  found")
 
-user = os.environ.get("OC_USER")
-passwd = os.environ.get("OC_PASSWORD")
+user = os.environ["OC_USER"]
+passwd = os.environ["OC_PASSWORD"]
+
 print(user, passwd)
 
 if not user or not passwd:
