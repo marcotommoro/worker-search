@@ -4,3 +4,6 @@ services:
   worker-bassoli:
     container_name: worker-bassoli
     build: .
+    environment:
+      - USER=user
+      - PASSWORD=password
