@@ -1,6 +1,6 @@
-FROM python:buster
+FROM python
 
-RUN pip install request pyocclient google
+RUN pip3 install pyocclient google
 
 RUN mkdir /app
 WORKDIR /app
