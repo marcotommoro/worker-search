@@ -7,4 +7,4 @@ WORKDIR /app
 RUN mkdir docs
 COPY . .
 
-CMD ["python", "main.py"]
+CMD ["python", "-u", "main.py"]

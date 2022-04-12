@@ -28,7 +28,8 @@ for comune in comuni.comuni:
     query = f'comune "{comune}" "azzardo" ordinanza filetype:pdf | filetype:doc | filetype:docx | filetype:rtf'
     try:
         oc.mkdir(f"documenti/{comune}")
-    except:
+    except owncloud.ResponseError as e:
+        print(e)
         pass
 
     for url in search(query, tld="co.in", num=10, stop=10, pause=2):
@@ -46,5 +47,6 @@ for comune in comuni.comuni:
             request.urlretrieve(url, f"docs/{name}")
             oc.put_file(f"documenti/{comune}/{name}", f"docs/{name}")
             os.remove(f"docs/{name}")
-        except:
+        except Exception as e:
+            print(e)
             pass
