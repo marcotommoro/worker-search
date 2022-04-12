@@ -5,5 +5,5 @@ services:
     container_name: worker-bassoli
     build: .
     environment:
-      - OC_USER=password
-      - OC_PASSWORD=password
+      - OC_USER=$OC_USER
+      - OC_PASSWORD=$OC_PASSWORD
