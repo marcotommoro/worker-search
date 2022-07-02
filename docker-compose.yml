@@ -7,3 +7,4 @@ services:
     environment:
       - OC_USER=$OC_USER
       - OC_PASSWORD=$OC_PASSWORD
+      - API_KEY=$API_KEY
