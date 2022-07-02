@@ -1,6 +1,6 @@
 FROM python
 
-RUN pip3 install pyocclient google
+RUN pip3 install pyocclient dotenv
 
 RUN mkdir /app
 WORKDIR /app
